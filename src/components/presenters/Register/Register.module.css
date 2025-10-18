@@ -8,7 +8,6 @@ a.btn {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100%;
 }
 
 form {
@@ -24,4 +23,10 @@ a.btn {
 
 a.btn:hover {
     text-decoration: underline;
+    cursor: pointer;
+}
+
+.error {
+    color: red;
+    text-align:justify;
 }

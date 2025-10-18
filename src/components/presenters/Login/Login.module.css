@@ -24,3 +24,7 @@ a.btn {
 a.btn:hover{
     text-decoration: underline;
 }
+
+.error {
+    color: red;
+}

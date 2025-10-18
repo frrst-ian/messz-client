@@ -19,7 +19,11 @@ const Register = ({
             <div className={styles.registerContainer}>
                 <form onSubmit={onSubmit}>
                     <h1>Create an account</h1>
-                    {error && <span className={styles.error}>{error}</span>}
+                    {error && (
+                        <div className={styles.error}>
+                            <pre>{error}</pre>
+                        </div>
+                    )}
 
                     <input
                         type="Full name"

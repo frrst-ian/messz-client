@@ -34,9 +34,7 @@ const authRegister = async (name, email, password, confirmPassword) => {
         const errorData = await res.json();
         console.log("errorData: ", errorData);
         const error = new Error(errorData.error || "Registration Failed");
-        if (errorData.details) {
-            error.details = errorData.details;
-        }
+        if (errorData.errors) error.details = errorData.errors;
 
         throw error;
     }

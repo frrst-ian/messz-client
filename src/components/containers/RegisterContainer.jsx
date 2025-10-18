@@ -27,9 +27,9 @@ const RegisterContainer = () => {
                 })
                 .catch((err) => {
                     if (err.details && Array.isArray(err.details)) {
-                        setError(err.details.join("\n"));
+                        setError(err.details.join('\n'));
                     } else {
-                        setError(err.error);
+                        setError(err.message);
                     }
                 })
                 .finally(() => {

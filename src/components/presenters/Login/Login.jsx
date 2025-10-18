@@ -14,7 +14,7 @@ const Login = ({
         <>
             <div className={styles.loginContainer}>
                 <form onSubmit={onSubmit}>
-                    <h1>Login</h1>
+                    <h1>Log in to Messz</h1>
                     {error && <span className={styles.error}>{error}</span>}
 
                     <input
