@@ -63,6 +63,25 @@ const LogInContainer = () => {
                     <button className="btn --btn-login" disabled={submitting}>
                         {submitting ? "Logging in..." : "Login"}
                     </button>
+
+                    <a className="btn" rel="noopener noreferrer" href="/register">
+                        Don't have an account? Register 
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="14"
+                            fill="none"
+                            viewBox="0 0 16 16"
+                            className="icon page_arrowRight__4KrB_"
+                        >
+                            <path
+                                stroke="currentColor"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="1.5"
+                                d="M9.75 4.75 13.25 8m0 0-3.5 3.25M13.25 8H2.75"
+                            ></path>
+                        </svg>
+                    </a>
                 </form>
             </div>
         </>
