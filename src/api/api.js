@@ -13,9 +13,9 @@ const authLogin = async (email, password) => {
     });
 
     if (!res.ok) {
-        const error = await res.json();
-        console.log("Error loggin in: ", error);
-        throw new Error(`HTTP error: Status ${res.status}`);
+        const errorData = await res.json();
+        console.log("Error logging in: ", errorData);
+        throw new Error(errorData.error || "Login Failed");
     }
     return res.json();
 };

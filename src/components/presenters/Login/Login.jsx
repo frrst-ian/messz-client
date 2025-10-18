@@ -1,42 +1,21 @@
-import { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { authLogin } from "../../api/api";
-import { UserContext } from "../../context/UserContext";
+import styles from "./Login.module.css";
+import Button from "../Button/Button";
 
-const LogInContainer = () => {
-    const { login, logout } = useContext(UserContext);
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [submitting, setSubmitting] = useState(false);
-    const [error, setError] = useState("");
-    const navigate = useNavigate();
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        setSubmitting(true);
-        setError("");
-
-        authLogin(email, password)
-            .then((data) => {
-                console.log("Email & Pass:", data.token, " ", data.user);
-                login(data.token, data.user);
-                navigate("/conversations");
-            })
-            .catch((err) => {
-                console.log("Catched error: ", err);
-                setError(err.error);
-            })
-            .finally(() => {
-                setSubmitting(false);
-            });
-    };
-
+const Login = ({
+    email,
+    setEmail,
+    password,
+    setPassword,
+    submitting,
+    error,
+    onSubmit,
+}) => {
     return (
         <>
-            <div className="loginContainer">
-                <form onSubmit={handleSubmit}>
+            <div className={styles.loginContainer}>
+                <form onSubmit={onSubmit}>
                     <h1>Login</h1>
-                    {error && <span className="error">{error}</span>}
+                    {error && <span className={styles.error}>{error}</span>}
 
                     <input
                         type="email"
@@ -60,12 +39,18 @@ const LogInContainer = () => {
                         required
                     />
 
-                    <button className="btn --btn-login" disabled={submitting}>
-                        {submitting ? "Logging in..." : "Login"}
-                    </button>
+                    <Button
+                        type="primary"
+                        label={submitting ? "Logging in..." : "Login"}
+                        status={submitting}
+                    ></Button>
 
-                    <a className="btn" rel="noopener noreferrer" href="/register">
-                        Don't have an account? Register 
+                    <a
+                        className={styles.btn}
+                        rel="noopener noreferrer"
+                        href="/register"
+                    >
+                        Don't have an account? Register
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="14"
@@ -88,4 +73,4 @@ const LogInContainer = () => {
     );
 };
 
-export default LogInContainer;
+export default Login;

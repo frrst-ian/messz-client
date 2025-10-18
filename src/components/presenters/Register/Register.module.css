@@ -1,0 +1,27 @@
+.registerContainer,
+form,
+a.btn {
+    display: flex;
+}
+
+.registerContainer {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+form {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+}
+
+a.btn {
+    gap: 0.8rem;
+    justify-content: center;
+}
+
+a.btn:hover {
+    text-decoration: underline;
+}

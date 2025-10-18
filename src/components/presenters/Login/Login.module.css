@@ -1,0 +1,26 @@
+.loginContainer,
+form,
+a.btn {
+    display: flex;
+}
+
+.loginContainer {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+form {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+}
+
+a.btn {
+    gap: 0.80rem;
+}
+
+a.btn:hover{
+    text-decoration: underline;
+}
