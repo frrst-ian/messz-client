@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
 import { getConversations } from "../../api/conversations";
-import ConversationListContainer from "./ConversationListContainer";
+import ConversationList from "../presenters/ConversationList/ConversationList";
 
-const ConversationContainer = () => {
-    const [conversations, setConverrsations] = useState([]);
-    // const [messages, setMessages] = useState([]);
+const ConversationsContainer = () => {
+    const [conversations, setConversations] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
 
@@ -12,8 +11,7 @@ const ConversationContainer = () => {
         getConversations()
             .then((data) => {
                 if (data) {
-                    console.log("Conversations: ", data);
-                    setConverrsations(data);
+                    setConversations(data);
                 }
                 setLoading(false);
             })
@@ -23,22 +21,19 @@ const ConversationContainer = () => {
                 setLoading(false);
             })
             .finally(() => {
-                setError("");
                 setLoading(false);
             });
     }, []);
 
-    console.log("Conversations: ", conversations);
+    console.log("conversations", conversations);
 
     return (
-        <ConversationListContainer
+        <ConversationList
             conversations={conversations}
             loading={loading}
             error={error}
         />
-        // <ConversationContainer /> // this shit is a unique conversation
-        // <ProfileContainer/>
     );
 };
 
-export default ConversationContainer;
+export default ConversationsContainer;

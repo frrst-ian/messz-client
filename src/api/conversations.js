@@ -18,4 +18,25 @@ const getConversations = async () => {
     return res.json();
 };
 
-export { getConversations };
+const getConversationMessages = async (conversationId, participantId) => {
+    const res = await fetch(
+        `${API_URL}/conversations/${conversationId}?participantId=${participantId}`,
+        {
+            method: "GET",
+            headers: {
+                ...getAuthHeaders(),
+            },
+        },
+    );
+
+    if (!res.ok) {
+        const errorData = await res.json();
+        throw new Error(
+            errorData.error || "Failed to fetch conversation messages",
+        );
+    }
+
+    return res.json();
+};
+
+export { getConversations, getConversationMessages };
