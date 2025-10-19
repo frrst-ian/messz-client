@@ -1,3 +1,5 @@
+import styles from "./ConversationMessages.module.css";
+import MessageContainer from "../../containers/MessageContainer.jsx";
 const ConversationMessages = ({ name, conversationData, error, loading }) => {
     /* 
  i need :
@@ -17,9 +19,19 @@ const ConversationMessages = ({ name, conversationData, error, loading }) => {
             </div>
             <div className="conversationData">
                 {conversationData?.messages?.map((msg) => (
-                    <div key={msg.id}>message: {msg.content}</div>
+                    <div
+                        key={msg.id}
+                        className={
+                            msg.senderId === conversationData.userId
+                                ? styles.messageLeft
+                                : styles.messageRight
+                        }
+                    >
+                        <p> {msg.content}</p>
+                    </div>
                 ))}
             </div>
+            <MessageContainer />
         </div>
     );
 };

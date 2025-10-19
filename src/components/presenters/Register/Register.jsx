@@ -71,7 +71,7 @@ const Register = ({
 
                     <Button
                         type="primary"
-                        label={submitting ? "Logging in..." : "Login"}
+                        label={submitting ? "Submitting..." : "Register"}
                         status={submitting}
                     ></Button>
 

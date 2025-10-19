@@ -12,8 +12,8 @@ const ConversationMessagesContainer = () => {
     const { state } = useLocation();
     const { name, participantId } = state || {};
 
-    console.log("name:", name);
-    console.log("participantId:", participantId);
+    // console.log("name:", name);
+    // console.log("participantId:", participantId);
 
     useEffect(() => {
         getConversationMessages(id, participantId)

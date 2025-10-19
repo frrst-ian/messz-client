@@ -39,4 +39,23 @@ const getConversationMessages = async (conversationId, participantId) => {
     return res.json();
 };
 
-export { getConversations, getConversationMessages };
+const createMessage = async (id, content ) => {
+    const res = await fetch(`${API_URL}/conversations/${id}/messages`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            ...getAuthHeaders(),
+        },
+        body: JSON.stringify({ content }),
+    });
+
+    if (!res.ok) {
+        const errorData = await res.json();
+        console.log("Error sending message: ", errorData);
+        throw new Error(errorData.error || "Message not sent");
+    }
+    return res.json();
+};
+
+
+export { getConversations, getConversationMessages ,createMessage};
