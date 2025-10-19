@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { authRegister } from "../../api/api";
+import { authRegister } from "../../api/auth";
 import { UserContext } from "../../context/UserContext";
 import Register from "../presenters/Register/Register";
 
