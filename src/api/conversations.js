@@ -39,7 +39,7 @@ const getConversationMessages = async (conversationId, participantId) => {
     return res.json();
 };
 
-const createMessage = async (id, content ) => {
+const createMessage = async (id, content) => {
     const res = await fetch(`${API_URL}/conversations/${id}/messages`, {
         method: "POST",
         headers: {
@@ -57,5 +57,4 @@ const createMessage = async (id, content ) => {
     return res.json();
 };
 
-
-export { getConversations, getConversationMessages ,createMessage};
+export { getConversations, getConversationMessages, createMessage };

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { getConversations } from "../../api/conversations";
 import ConversationList from "../presenters/ConversationList/ConversationList";
+import { getConversations } from "../../api/conversations";
 
 const ConversationsContainer = () => {
     const [conversations, setConversations] = useState([]);

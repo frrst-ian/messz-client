@@ -21,11 +21,14 @@ const ConversationItem = ({ conversation, onConversationClick }) => {
                 ))}
             </div>
             <div className="right">
-                <p className={styles.seen}>
-                    Seen status: {conversation.seen ? "true" : "false"}
-                </p>
+                {conversation.messages.map((message) => (
+                    <span className={styles.seen} key={message.id}>
+                        {message.seen ? "yes" : "nah"}
+                    </span>
+                ))}
+
                 <p className={styles.unread}>
-                    Unread messages: {conversation.unseenMessages}
+                    Unread messages: {conversation.unseenCount}
                 </p>
             </div>
         </div>
