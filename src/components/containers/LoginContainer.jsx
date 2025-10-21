@@ -21,7 +21,7 @@ const LogInContainer = () => {
             .then((data) => {
                 console.log("Email & Pass:", data.token, " ", data.user);
                 login(data.token, data.user);
-                navigate("/profile");
+                navigate("/conversations");
             })
             .catch((err) => {
                 setError(err.message);

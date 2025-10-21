@@ -1,0 +1,78 @@
+import { useContext, useState } from "react";
+import styles from "./Sidebar.module.css";
+import {
+    LucideLogOut,
+    Menu,
+    MessageCircleCode,
+    User,
+    UserRoundPen,
+    Users,
+} from "lucide-react";
+import { Outlet, useNavigate } from "react-router-dom";
+import { UserContext } from "../../../context/UserContext";
+
+const Sidebar = () => {
+    const [open, setOpen] = useState(false);
+    const { logout } = useContext(UserContext);
+    const pfp = localStorage.getItem("pfpUrl");
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+        navigate("/");
+        logout();
+    };
+
+    return (
+        <>
+            <div
+                className={
+                    open
+                        ? [styles.sidebarContainer, styles.open].join(" ")
+                        : [styles.sidebarContainer, styles.close].join(" ")
+                }
+            >
+                <div className={styles.top}>
+                    <div className={styles.logoContainer}>
+                        <MessageCircleCode size={36} className={styles.logo} />
+                        <span className={styles.logoText}>Messz</span>
+                    </div>
+
+                    <Menu
+                        className={styles.btn}
+                        onClick={() => (open ? setOpen(false) : setOpen(true))}
+                    />
+                </div>
+                <div className={styles.user}>
+                    <img className={styles.pfp} src={pfp} alt="Profile Pic" />
+                    <p className={styles.name}>Ian Forrest Rogel</p>
+                </div>
+                <ul>
+                    <li>
+                        <UserRoundPen className={styles.icon} />
+                        <a className={styles.iconText} href="">
+                            Edit profile
+                        </a>
+                        <span className={styles.tooltip}>Edit profile</span>
+                    </li>
+                    <li>
+                        <Users className={styles.icon} />
+                        <a className={styles.iconText} href="">
+                            Users
+                        </a>
+                        <span className={styles.tooltip}>Users</span>
+                    </li>
+                    <li onClick={handleLogout}>
+                        <LucideLogOut className={styles.icon} />
+                        <a className={styles.iconText} href="">
+                            Logout
+                        </a>
+                        <span className={styles.tooltip}>Logout</span>
+                    </li>
+                </ul>
+            </div>
+            <Outlet />
+        </>
+    );
+};
+
+export default Sidebar;

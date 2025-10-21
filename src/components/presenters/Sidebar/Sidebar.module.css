@@ -1,0 +1,151 @@
+.sidebarContainer {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background: #181a1b;
+    color: #f8f9fa;
+    padding-top: 0.5rem;
+    transition: all 0.5s ease;
+}
+
+.sidebarContainer.close {
+    width: 85px;
+}
+
+.sidebarContainer.open {
+    width: 300px;
+}
+
+.sidebarContainer.open .logoText {
+    opacity: 1;
+}
+
+.top {
+    margin: 1rem 1rem;
+}
+
+.user {
+    margin: 2rem 1rem 0rem 1rem;
+}
+
+.sidebarContainer .logoContainer {
+    opacity: 0;
+}
+
+.sidebarContainer.open .logoContainer {
+    opacity: 1;
+    transition: all 0.3s ease;
+}
+
+.top .logoContainer {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    justify-content: start;
+    margin-right: 0.875rem;
+}
+
+.logoText {
+    font-size: 1.3rem;
+}
+
+.btn {
+    position: absolute;
+    top: 1.8rem;
+    transform: translateX(50%);
+}
+
+.sidebarContainer.open .btn {
+    left: 75%;
+}
+
+.pfp {
+    min-width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid blue;
+    flex-shrink: 0;
+}
+
+.user {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 1rem;
+}
+
+.name {
+    display: none;
+}
+
+.sidebarContainer.open .name {
+    display: block;
+    transition: alll 0.3s ease;
+}
+
+.sidebarContainer.close ul {
+    padding: 0;
+}
+
+.sidebarContainer ul {
+    margin-top: 1.5rem;
+}
+
+.sidebarContainer ul li {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 0.75rem;
+    margin: 1rem;
+    margin-left: 1.8rem;
+}
+
+.sidebarContainer.open ul li {
+    margin-left: 0;
+    padding: 0.7rem;
+    border-radius: 1rem;
+}
+
+.sidebarContainer.open ul li:hover {
+    color: #181a1b;
+    background: #f8f9fa;
+    width: 70%;
+}
+
+li:hover a {
+    color: inherit;
+}
+
+.icon {
+    min-width: 1.5rem;
+}
+
+.sidebarContainer ul li a {
+    display: none;
+}
+
+.sidebarContainer.open ul li a {
+    display: block;
+}
+
+.sidebarContainer .tooltip {
+    display: none;
+}
+
+.sidebarContainer.close ul li:hover .tooltip {
+    position: absolute;
+    left: 110%;
+    text-align: center;
+    display: block;
+    color: black;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    padding: 0.45rem;
+    border-radius: 0.65rem;
+    min-width: 100px;
+}
+
+.iconText {
+    color: #f8f9fa;
+}

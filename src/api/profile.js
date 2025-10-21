@@ -19,4 +19,20 @@ const createProfile = async (formData) => {
     return res.json();
 };
 
-export { createProfile };
+const getProfiles = async () => {
+    const res = await fetch(`${API_URL}/profile`, {
+        method: "GET",
+        headers: {
+            ...getAuthHeaders(),
+        },
+    });
+
+    if (!res.ok) {
+        const errorData = await res.json();
+        throw new Error(errorData.error || "Failed to fetch profiles");
+    }
+
+    return res.json();
+};
+
+export { createProfile,getProfiles };
