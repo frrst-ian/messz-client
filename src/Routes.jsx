@@ -3,6 +3,7 @@ import LoginContainer from "./components/containers/LoginContainer";
 import RegisterContainer from "./components/containers/RegisterContainer";
 import ConversationsContainer from "./components/containers/ConversationsContainer";
 import ConversationMessagesContainer from "./components/containers/ConversationMessagesContainer";
+import ProfileContainer from "./components/containers/ProfileContainer";
 
 const AppRoutes = () => {
     return (
@@ -12,6 +13,8 @@ const AppRoutes = () => {
             <Route path="register" element={<RegisterContainer />} />
             <Route path="conversations" element={<ConversationsContainer />} />
             <Route path="conversations/:id" element={<ConversationMessagesContainer />} />
+            <Route path="/profile" element={<ProfileContainer />} />
+
 
         </Routes>
     );
