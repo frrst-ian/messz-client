@@ -4,7 +4,6 @@ import {
     LucideLogOut,
     Menu,
     MessageCircleCode,
-    User,
     UserRoundPen,
     Users,
 } from "lucide-react";
@@ -15,6 +14,7 @@ const Sidebar = () => {
     const [open, setOpen] = useState(false);
     const { logout } = useContext(UserContext);
     const pfp = localStorage.getItem("pfpUrl");
+    console.log("URL FROM SIDEBAR: ", pfp);
     const navigate = useNavigate();
 
     const handleLogout = () => {

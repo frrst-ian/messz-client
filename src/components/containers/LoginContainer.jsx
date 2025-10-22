@@ -19,8 +19,14 @@ const LogInContainer = () => {
 
         authLogin(email, password)
             .then((data) => {
-                console.log("User info:", data.token, " ", data.user);
-                login(data.token, data.user);
+                console.log("data.pfp.pfpUrl:", data.profile.pfpUrl);
+                console.log(
+                    "User info:",
+                    data.token,
+                    data.user,
+                    data.profile.pfpUrl,
+                );
+                login(data.token, data.user, data.profile.pfpUrl);
                 navigate("/conversations");
             })
             .catch((err) => {

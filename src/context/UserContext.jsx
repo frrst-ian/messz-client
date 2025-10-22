@@ -23,11 +23,12 @@ const UserProvider = ({ children }) => {
         setLoading(false);
     }, []);
 
-    const login = (tokenData, userData) => {
+    const login = (tokenData, userData, profileData) => {
         setUser(userData);
         setToken(tokenData);
         localStorage.setItem("token", tokenData);
         localStorage.setItem("user", JSON.stringify(userData));
+        localStorage.setItem("pfpUrl", profileData);
     };
 
     const logout = () => {

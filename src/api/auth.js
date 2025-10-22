@@ -17,6 +17,7 @@ const authLogin = async (email, password) => {
         console.log("Error logging in: ", errorData);
         throw new Error(errorData.error || "Login Failed");
     }
+
     return res.json();
 };
 
