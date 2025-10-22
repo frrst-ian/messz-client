@@ -2,7 +2,7 @@ import styles from "./ProfileItem.module.css";
 
 const ProfileItem = ({ profile, onProfileClick }) => {
     return (
-        <div onClick={onProfileClick} className={styles.ProfileItemContainer}>
+        <div onClick={onProfileClick} className={styles.profileItemContainer}>
             <img
                 src={profile.pfpUrl}
                 alt={`${profile.user.fullName}'s Profile Picture`}

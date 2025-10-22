@@ -3,6 +3,7 @@ import { getAuthHeaders } from "../utils/auth";
 const API_URL = "http://localhost:3000/api";
 
 const createProfile = async (formData) => {
+    console.log(formData);
     const res = await fetch(`${API_URL}/profile`, {
         method: "POST",
         headers: {
@@ -35,4 +36,20 @@ const getProfiles = async () => {
     return res.json();
 };
 
-export { createProfile,getProfiles };
+const getProfileById = async (id) => {
+    const res = await fetch(`${API_URL}/profile/${id}`, {
+        method: "GET",
+        headers: {
+            ...getAuthHeaders(),
+        },
+    });
+
+    if (!res.ok) {
+        const errorData = await res.json();
+        throw new Error(errorData.error || "Failed to fetch profile");
+    }
+
+    return res.json();
+};
+
+export { createProfile, getProfiles, getProfileById };

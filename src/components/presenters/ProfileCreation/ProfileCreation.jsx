@@ -11,7 +11,7 @@ const ProfileCreation = ({
         <div>
             <h1>Create your profile</h1> <p>PFP:</p>
             <form onSubmit={onUpload}>
-                <input type="file" onChange={onFileChange} />{" "}
+                <input type="file" onChange={onFileChange} required />{" "}
                 <input
                     type="text"
                     name="bio"

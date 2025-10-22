@@ -21,7 +21,7 @@ const ProfileContainer = () => {
         setUploadStatus("uploading");
         const formData = new FormData();
         formData.append("pfpUrl", file);
-        formData.append("text", bio);
+        formData.append("bio", bio);
         createProfile(formData)
             .then((data) => {
                 // if (data) setSelectedFile(data);

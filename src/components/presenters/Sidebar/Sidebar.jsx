@@ -14,7 +14,6 @@ const Sidebar = () => {
     const [open, setOpen] = useState(false);
     const { logout } = useContext(UserContext);
     const pfp = localStorage.getItem("pfpUrl");
-    console.log("URL FROM SIDEBAR: ", pfp);
     const navigate = useNavigate();
 
     const handleLogout = () => {
@@ -54,18 +53,14 @@ const Sidebar = () => {
                         </a>
                         <span className={styles.tooltip}>Edit profile</span>
                     </li>
-                    <li>
+                    <li onClick={() => navigate("/user-profiles")}>
                         <Users className={styles.icon} />
-                        <a className={styles.iconText} href="">
-                            Users
-                        </a>
+                        <a className={styles.iconText}>Users</a>
                         <span className={styles.tooltip}>Users</span>
                     </li>
                     <li onClick={handleLogout}>
                         <LucideLogOut className={styles.icon} />
-                        <a className={styles.iconText} href="">
-                            Logout
-                        </a>
+                        <a className={styles.iconText}>Logout</a>
                         <span className={styles.tooltip}>Logout</span>
                     </li>
                 </ul>

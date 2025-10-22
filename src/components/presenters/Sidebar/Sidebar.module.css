@@ -38,6 +38,10 @@
     transition: all 0.3s ease;
 }
 
+.sidebarContainer .logoContainer:hover {
+    cursor: default;
+}
+
 .top .logoContainer {
     display: flex;
     align-items: center;
@@ -52,8 +56,12 @@
 
 .btn {
     position: absolute;
-    top: 1.8rem;    
+    top: 1.8rem;
     transform: translateX(50%);
+}
+
+.btn:hover {
+    cursor: pointer;
 }
 
 .sidebarContainer.open .btn {
@@ -65,6 +73,7 @@
     height: 50px;
     border-radius: 50%;
     border: 1px solid blue;
+    object-fit: cover;
 }
 
 .sidebarContainer.open .pfp {
@@ -72,7 +81,6 @@
     height: 50px;
     border-radius: 50%;
 }
-
 
 .user {
     display: flex;
@@ -118,6 +126,7 @@
     color: #181a1b;
     background: #f8f9fa;
     width: 70%;
+    cursor: pointer;
 }
 
 li:hover a {
@@ -154,4 +163,8 @@ li:hover a {
 
 .iconText {
     color: #f8f9fa;
+}
+
+.sidebarContainer.close .icon:hover{
+    cursor: pointer;
 }
