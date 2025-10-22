@@ -4,8 +4,6 @@ import { useNavigate } from "react-router-dom";
 const ProfileItemContainer = ({ profile }) => {
     const navigate = useNavigate();
 
-    const pfpUrl = localStorage.setItem("pfpUrl", profile.pfpUrl);
-
     const handleProfileClick = () => {
         navigate(`${profile.id}`);
     };

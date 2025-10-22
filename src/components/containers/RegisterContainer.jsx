@@ -23,7 +23,7 @@ const RegisterContainer = () => {
             authRegister(name, email, password, confirmPassword)
                 .then((data) => {
                     login(data.token, data.user);
-                    navigate("/profile");
+                    navigate("/create-profile");
                 })
                 .catch((err) => {
                     if (err.details && Array.isArray(err.details)) {

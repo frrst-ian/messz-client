@@ -22,10 +22,12 @@ const AppRoutes = () => {
                     path="conversations/:id"
                     element={<ConversationMessagesContainer />}
                 />
-            <Route path="/profile" element={<ProfileContainer />} />
-            <Route path="/user-profiles" element={<ProfileListContainer />} />
+                <Route
+                    path="/user-profiles"
+                    element={<ProfileListContainer />}
+                />
+                <Route path="/create-profile" element={<ProfileContainer />} />
             </Route>
-            <Route />
         </Routes>
     );
 };

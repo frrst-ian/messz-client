@@ -19,7 +19,7 @@ const LogInContainer = () => {
 
         authLogin(email, password)
             .then((data) => {
-                console.log("Email & Pass:", data.token, " ", data.user);
+                console.log("User info:", data.token, " ", data.user);
                 login(data.token, data.user);
                 navigate("/conversations");
             })

@@ -2,7 +2,6 @@ import { useState } from "react";
 import { createProfile } from "../../api/profile";
 import { useNavigate } from "react-router-dom";
 import ProfileCreation from "../presenters/ProfileCreation/ProfileCreation";
-import ProfileList from "../presenters/ProfileList/ProfileList";
 
 const ProfileContainer = () => {
     const [file, setSelectedFile] = useState(null);
@@ -16,16 +15,18 @@ const ProfileContainer = () => {
         setSelectedFile(event.target.files[0]);
     };
 
-    const handleUpload = () => {
-        if (!file) return;
+    const handleUpload = (e) => {
+        e.preventDefault();
 
         setUploadStatus("uploading");
         const formData = new FormData();
         formData.append("pfpUrl", file);
         formData.append("text", bio);
         createProfile(formData)
-            .then(() => {
+            .then((data) => {
                 // if (data) setSelectedFile(data);
+                localStorage.setItem("pfpUrl", data.pfpUrl);
+
                 setUploadStatus("success");
             })
             .catch((error) => {
