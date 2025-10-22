@@ -7,6 +7,7 @@ import ProfileContainer from "./components/containers/ProfileContainer";
 import ProfileListContainer from "./components/containers/ProfileListContainer";
 import ProfileDetailContainer from "./components/containers/ProfileDetailContainer";
 import UpdateProfileContainer from "./components/containers/UpdateProfileContainer";
+import ProtectedRoute from "./components/containers/ProtectedRoute";
 
 const AppRoutes = () => {
     return (
@@ -15,16 +16,54 @@ const AppRoutes = () => {
             <Route path="login" element={<LoginContainer />} />
             <Route path="register" element={<RegisterContainer />} />
 
-            <Route path="conversations" element={<ConversationsContainer />} />
+            <Route
+                path="conversations"
+                element={
+                    <ProtectedRoute>
+                        <ConversationsContainer />
+                    </ProtectedRoute>
+                }
+            />
             <Route
                 path="conversations/:id"
-                element={<ConversationMessagesContainer />}
+                element={
+                    <ProtectedRoute>
+                        <ConversationMessagesContainer />
+                    </ProtectedRoute>
+                }
             />
-            <Route path="/user-profiles" element={<ProfileListContainer />} />
-            <Route path="/create-profile" element={<ProfileContainer />} />
-            <Route path="user-profiles/:id" element={<ProfileDetailContainer />} />
-            <Route path="user-profiles/:id/update" element={<UpdateProfileContainer />} />
-
+            <Route
+                path="/user-profiles"
+                element={
+                    <ProtectedRoute>
+                        <ProfileListContainer />
+                    </ProtectedRoute>
+                }
+            />
+            <Route
+                path="/create-profile"
+                element={
+                    <ProtectedRoute>
+                        <ProfileContainer />
+                    </ProtectedRoute>
+                }
+            />
+            <Route
+                path="user-profiles/:id"
+                element={
+                    <ProtectedRoute>
+                        <ProfileDetailContainer />
+                    </ProtectedRoute>
+                }
+            />
+            <Route
+                path="user-profiles/:id/update"
+                element={
+                    <ProtectedRoute>
+                        <UpdateProfileContainer />
+                    </ProtectedRoute>
+                }
+            />
         </Routes>
     );
 };

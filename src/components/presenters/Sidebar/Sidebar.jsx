@@ -15,7 +15,6 @@ const Sidebar = () => {
     const { logout } = useContext(UserContext);
     const pfp = localStorage.getItem("pfpUrl");
     const pfpId = localStorage.getItem("pfpId");
-    console.log("pfpId: ", pfpId);
 
     const navigate = useNavigate();
 
@@ -49,7 +48,11 @@ const Sidebar = () => {
                     <p className={styles.name}>Ian Forrest Rogel</p>
                 </div>
                 <ul>
-                    <li onClick={() => navigate(`/user-profiles/${pfpId}/update`)}>
+                    <li
+                        onClick={() =>
+                            navigate(`/user-profiles/${pfpId}/update`)
+                        }
+                    >
                         <UserRoundPen className={styles.icon} />
                         <a className={styles.iconText} href="">
                             Edit profile

@@ -29,6 +29,12 @@ const getConversationMessages = async (conversationId, participantId) => {
         },
     );
 
+    if (res.status === 401) {
+        alert("Permission denied");
+    } else if (res.status === 404) {
+        alert("Conversation Not Found");
+    }
+
     if (!res.ok) {
         const errorData = await res.json();
         throw new Error(
@@ -54,6 +60,13 @@ const createMessage = async (id, content) => {
         console.log("Error sending message: ", errorData);
         throw new Error(errorData.error || "Message not sent");
     }
+
+    if (res.status === 401) {
+        alert("Permission denied");
+    } else if (res.status === 404) {
+        alert("Conversation Not Found");
+    }
+
     return res.json();
 };
 

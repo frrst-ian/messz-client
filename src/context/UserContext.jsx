@@ -7,8 +7,18 @@ const UserProvider = ({ children }) => {
     const [token, setToken] = useState(null);
     const [loading, setLoading] = useState(true);
 
+    const isTokenExpired = (token) => {
+        try {
+            const payload = JSON.parse(atob(token.split(".")[1]));
+            return payload.exp * 1000 < Date.now();
+        } catch {
+            return true;
+        }
+    };
+
     useEffect(() => {
         const storedToken = localStorage.getItem("token");
+        if (token && isTokenExpired(token)) logout();
         const storedUser = localStorage.getItem("user");
         if (storedToken) {
             try {

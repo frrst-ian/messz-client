@@ -61,6 +61,14 @@ const updateProfile = async (id, formData) => {
         body: formData,
     });
 
+    if (res.status === 401) {
+        alert("Permission denied");
+    } else if (res.status === 404) {
+        alert("Profile Not Found");
+    } else if (res.ok) {
+        alert("Profile Updated");
+    }
+
     if (!res.ok) {
         const errorData = await res.json();
         throw new Error(errorData.error || "Failed to fetch profile");
