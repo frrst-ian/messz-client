@@ -5,7 +5,6 @@ import ConversationsContainer from "./components/containers/ConversationsContain
 import ConversationMessagesContainer from "./components/containers/ConversationMessagesContainer";
 import ProfileContainer from "./components/containers/ProfileContainer";
 import ProfileListContainer from "./components/containers/ProfileListContainer";
-import Sidebar from "./components/presenters/Sidebar/Sidebar";
 
 const AppRoutes = () => {
     return (
@@ -13,21 +12,14 @@ const AppRoutes = () => {
             <Route path="/" element={<Navigate to="login" replace />} />
             <Route path="login" element={<LoginContainer />} />
             <Route path="register" element={<RegisterContainer />} />
-            <Route element={<Sidebar />}>
-                <Route
-                    path="conversations"
-                    element={<ConversationsContainer />}
-                />
-                <Route
-                    path="conversations/:id"
-                    element={<ConversationMessagesContainer />}
-                />
-                <Route
-                    path="/user-profiles"
-                    element={<ProfileListContainer />}
-                />
-                <Route path="/create-profile" element={<ProfileContainer />} />
-            </Route>
+
+            <Route path="conversations" element={<ConversationsContainer />} />
+            <Route
+                path="conversations/:id"
+                element={<ConversationMessagesContainer />}
+            />
+            <Route path="/user-profiles" element={<ProfileListContainer />} />
+            <Route path="/create-profile" element={<ProfileContainer />} />
         </Routes>
     );
 };

@@ -8,7 +8,7 @@ import {
     UserRoundPen,
     Users,
 } from "lucide-react";
-import { Outlet, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../../context/UserContext";
 
 const Sidebar = () => {
@@ -70,7 +70,6 @@ const Sidebar = () => {
                     </li>
                 </ul>
             </div>
-            <Outlet />
         </>
     );
 };

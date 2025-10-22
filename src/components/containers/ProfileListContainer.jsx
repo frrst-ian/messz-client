@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { getProfiles } from "../../api/profile";
 import ProfileList from "../presenters/ProfileList/ProfileList";
+import Sidebar from "../presenters/Sidebar/Sidebar";
 
 const ProfileListContainer = () => {
     const [profiles, setProfiles] = useState([]);
@@ -27,6 +28,7 @@ const ProfileListContainer = () => {
 
     return (
         <>
+            <Sidebar />
             <ProfileList profiles={profiles} loading={loading} error={error} />
         </>
     );

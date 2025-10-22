@@ -26,7 +26,7 @@ const ProfileContainer = () => {
             .then((data) => {
                 // if (data) setSelectedFile(data);
                 localStorage.setItem("pfpUrl", data.pfpUrl);
-
+                navigate("/conversations");
                 setUploadStatus("success");
             })
             .catch((error) => {
@@ -36,7 +36,6 @@ const ProfileContainer = () => {
             .finally(() => {
                 setUploadStatus("initial");
             });
-        navigate("/conversations");
     };
     return (
         <>

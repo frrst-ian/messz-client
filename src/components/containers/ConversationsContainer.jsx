@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import ConversationList from "../presenters/ConversationList/ConversationList";
 import { getConversations } from "../../api/conversations";
+import Sidebar from "../presenters/Sidebar/Sidebar";
 
 const ConversationsContainer = () => {
     const [conversations, setConversations] = useState([]);
@@ -28,11 +29,14 @@ const ConversationsContainer = () => {
     console.log("conversations", conversations);
 
     return (
-        <ConversationList
-            conversations={conversations}
-            loading={loading}
-            error={error}
-        />
+        <>
+            <Sidebar />
+            <ConversationList
+                conversations={conversations}
+                loading={loading}
+                error={error}
+            />
+        </>
     );
 };
 
