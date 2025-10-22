@@ -6,6 +6,7 @@ import ConversationMessagesContainer from "./components/containers/ConversationM
 import ProfileContainer from "./components/containers/ProfileContainer";
 import ProfileListContainer from "./components/containers/ProfileListContainer";
 import ProfileDetailContainer from "./components/containers/ProfileDetailContainer";
+import UpdateProfileContainer from "./components/containers/UpdateProfileContainer";
 
 const AppRoutes = () => {
     return (
@@ -22,6 +23,8 @@ const AppRoutes = () => {
             <Route path="/user-profiles" element={<ProfileListContainer />} />
             <Route path="/create-profile" element={<ProfileContainer />} />
             <Route path="user-profiles/:id" element={<ProfileDetailContainer />} />
+            <Route path="user-profiles/:id/update" element={<UpdateProfileContainer />} />
+
         </Routes>
     );
 };

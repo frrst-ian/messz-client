@@ -14,6 +14,9 @@ const Sidebar = () => {
     const [open, setOpen] = useState(false);
     const { logout } = useContext(UserContext);
     const pfp = localStorage.getItem("pfpUrl");
+    const pfpId = localStorage.getItem("pfpId");
+    console.log("pfpId: ", pfpId);
+
     const navigate = useNavigate();
 
     const handleLogout = () => {
@@ -46,7 +49,7 @@ const Sidebar = () => {
                     <p className={styles.name}>Ian Forrest Rogel</p>
                 </div>
                 <ul>
-                    <li>
+                    <li onClick={() => navigate(`/user-profiles/${pfpId}/update`)}>
                         <UserRoundPen className={styles.icon} />
                         <a className={styles.iconText} href="">
                             Edit profile

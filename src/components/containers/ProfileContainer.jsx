@@ -26,6 +26,8 @@ const ProfileContainer = () => {
             .then((data) => {
                 // if (data) setSelectedFile(data);
                 localStorage.setItem("pfpUrl", data.pfpUrl);
+                localStorage.setItem("pfpId", data.id);
+
                 navigate("/conversations");
                 setUploadStatus("success");
             })

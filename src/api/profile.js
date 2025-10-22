@@ -52,4 +52,21 @@ const getProfileById = async (id) => {
     return res.json();
 };
 
-export { createProfile, getProfiles, getProfileById };
+const updateProfile = async (id, formData) => {
+    const res = await fetch(`${API_URL}/profile/${id}`, {
+        method: "PUT",
+        headers: {
+            ...getAuthHeaders(),
+        },
+        body: formData,
+    });
+
+    if (!res.ok) {
+        const errorData = await res.json();
+        throw new Error(errorData.error || "Failed to fetch profile");
+    }
+
+    return res.json();
+};
+
+export { createProfile, getProfiles, getProfileById, updateProfile };
