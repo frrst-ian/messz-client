@@ -6,7 +6,6 @@ const ProfileCreation = ({
     onUpload,
     uploadStatus,
 }) => {
-    console.log("Upload Status:", uploadStatus);
     return (
         <div>
             <h1>Create your profile</h1> <p>PFP:</p>

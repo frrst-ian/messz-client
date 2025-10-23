@@ -15,7 +15,7 @@ const ProfileDetailContainer = () => {
         getProfileById(id)
             .then((data) => {
                 setProfile(data);
-                console.log("data:", data);
+                // console.log("data:", data);
             })
             .catch((err) => {
                 setError(err.message);

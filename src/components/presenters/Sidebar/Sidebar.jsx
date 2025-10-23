@@ -6,6 +6,7 @@ import {
     MessageCircleCode,
     UserRoundPen,
     Users,
+    MessageCircle,
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../../context/UserContext";
@@ -59,11 +60,17 @@ const Sidebar = () => {
                         </a>
                         <span className={styles.tooltip}>Edit profile</span>
                     </li>
+                    <li onClick={() => navigate("/conversations")}>
+                        <MessageCircle className={styles.icon} />
+                        <a className={styles.iconText}>Conversations</a>
+                        <span className={styles.tooltip}>Conversations</span>
+                    </li>
                     <li onClick={() => navigate("/user-profiles")}>
                         <Users className={styles.icon} />
                         <a className={styles.iconText}>Users</a>
                         <span className={styles.tooltip}>Users</span>
                     </li>
+
                     <li onClick={handleLogout}>
                         <LucideLogOut className={styles.icon} />
                         <a className={styles.iconText}>Logout</a>

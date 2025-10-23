@@ -1,5 +1,6 @@
 import styles from "./ConversationList.module.css";
 import ConversationItemContainer from "../../containers/ConversationItemContainer";
+import ProfileItem from "../ProfileItem/ProfileItem";
 
 const ConversationList = ({ conversations, loading, error }) => {
     if (conversations.length === 0) {

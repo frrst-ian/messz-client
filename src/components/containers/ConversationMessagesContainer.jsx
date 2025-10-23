@@ -10,13 +10,13 @@ const ConversationMessagesContainer = () => {
 
     const { id } = useParams();
     const { state } = useLocation();
-    const { name, participantId } = state || {};
+    const { name } = state || {};
 
     // console.log("name:", name);
     // console.log("participantId:", participantId);
 
     useEffect(() => {
-        getConversationMessages(id, participantId)
+        getConversationMessages(id)
             .then((data) => {
                 if (data) setConversationData(data);
                 setLoading(false);
@@ -27,7 +27,7 @@ const ConversationMessagesContainer = () => {
             .finally(() => {
                 setLoading(false);
             });
-    }, [id, participantId]);
+    }, [id]);
 
     console.log("convoData: ", conversationData);
 

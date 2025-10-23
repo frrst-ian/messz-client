@@ -9,7 +9,6 @@ const ConversationItemContainer = ({ conversation }) => {
         navigate(`${conversation.id}`, {
             state: {
                 name: conversation.participant.fullName,
-                participantId: conversation.participantId,
             },
         });
     };

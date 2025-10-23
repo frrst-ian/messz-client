@@ -17,7 +17,6 @@ const ProfileListContainer = () => {
                 setLoading(false);
             })
             .catch((err) => {
-                console.log("Catched err: ", err);
                 setError(err.message);
                 setLoading(false);
             })
