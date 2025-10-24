@@ -1,12 +1,14 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import LoginContainer from "./components/containers/LoginContainer";
 import RegisterContainer from "./components/containers/RegisterContainer";
-import ConversationsContainer from "./components/containers/ConversationsContainer";
-import ConversationMessagesContainer from "./components/containers/ConversationMessagesContainer";
-import ProfileContainer from "./components/containers/ProfileContainer";
-import ProfileListContainer from "./components/containers/ProfileListContainer";
-import ProfileDetailContainer from "./components/containers/ProfileDetailContainer";
-import UpdateProfileContainer from "./components/containers/UpdateProfileContainer";
+import Conversations from "./components/Conversations/Conversations";
+import ConvoMessages from "./components/ConvoMessages/ConvoMessages";
+// import ConversationsContainer from "./components/containers/ConversationsContainer";
+// import ConversationMessagesContainer from "./components/containers/ConversationMessagesContainer";
+// import ProfileContainer from "./components/containers/ProfileContainer";
+// import ProfileListContainer from "./components/containers/ProfileListContainer";
+// import ProfileDetailContainer from "./components/containers/ProfileDetailContainer";
+// import UpdateProfileContainer from "./components/containers/UpdateProfileContainer";
 import ProtectedRoute from "./components/containers/ProtectedRoute";
 
 const AppRoutes = () => {
@@ -20,7 +22,7 @@ const AppRoutes = () => {
                 path="conversations"
                 element={
                     <ProtectedRoute>
-                        <ConversationsContainer />
+                        <Conversations />
                     </ProtectedRoute>
                 }
             />
@@ -28,11 +30,11 @@ const AppRoutes = () => {
                 path="conversations/:id"
                 element={
                     <ProtectedRoute>
-                        <ConversationMessagesContainer />
+                        <ConvoMessages />
                     </ProtectedRoute>
                 }
             />
-            <Route
+            {/*            <Route
                 path="/user-profiles"
                 element={
                     <ProtectedRoute>
@@ -63,7 +65,7 @@ const AppRoutes = () => {
                         <UpdateProfileContainer />
                     </ProtectedRoute>
                 }
-            />
+            />*/}
         </Routes>
     );
 };

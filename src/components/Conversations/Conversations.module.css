@@ -1,0 +1,11 @@
+.convoItemWrapper {
+    widows: 200px;
+    border: 2px solid black;
+    padding: 1rem;
+    margin: 1rem;
+}
+
+.convoItemWrapper:hover{
+    cursor: pointer;
+    background: gray;
+}

@@ -29,8 +29,8 @@ const LogInContainer = () => {
                 login(
                     data.token,
                     data.user,
-                    data.profile.pfpUrl,
-                    data.profile.pfpId,
+                    // data.profile.pfpUrl,
+                    // data.profile.pfpId,
                 );
                 navigate("/conversations");
             })

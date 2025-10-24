@@ -33,13 +33,13 @@ const UserProvider = ({ children }) => {
         setLoading(false);
     }, []);
 
-    const login = (tokenData, userData, pfpUrl, pfpId) => {
+    const login = (tokenData, userData) => {
         setUser(userData);
         setToken(tokenData);
         localStorage.setItem("token", tokenData);
         localStorage.setItem("user", JSON.stringify(userData));
-        localStorage.setItem("pfpUrl", pfpUrl);
-        localStorage.setItem("pfpId", pfpId);
+        // localStorage.setItem("pfpUrl", pfpUrl);
+        // localStorage.setItem("pfpId", pfpId);
     };
 
     const logout = () => {
@@ -51,7 +51,7 @@ const UserProvider = ({ children }) => {
         setToken(null);
         localStorage.removeItem("token");
         localStorage.removeItem("user");
-        localStorage.removeItem("pfpUrl");
+        // localStorage.removeItem("pfpUrl");
     };
 
     return (
