@@ -2,7 +2,7 @@ import styles from "./ConvoMessages.module.css";
 import useConvoMessages from "../../hooks/useConvoMessages";
 import { UserContext } from "../../context/UserContext";
 import { useContext } from "react";
-// import styles from "./Conversations.module.css";
+import Message from "../Message/Message";
 
 export default function Conversations() {
     const { convoMessages, loading, error } = useConvoMessages();
@@ -17,6 +17,7 @@ export default function Conversations() {
 
     const messages = convoMessages.messages;
     const participants = convoMessages.participants;
+    const convoId = convoMessages.id;
 
     return (
         <>
@@ -37,6 +38,7 @@ export default function Conversations() {
                     </p>
                 ))}
             </div>
+            <Message convoId={convoId} />
         </>
     );
 }
