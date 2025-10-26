@@ -6,7 +6,7 @@ export default function useMessage() {
     const [error, setError] = useState(null);
     const sendMessage = async (content, convoId) => {
         setLoading(true);
-        console.log("convoId:" , convoId)
+        console.log("convoId:", convoId);
         try {
             const res = await fetch(`http://localhost:3000/api/message`, {
                 method: "POST",
@@ -20,7 +20,6 @@ export default function useMessage() {
             if (!res.ok) {
                 throw new Error(`HTTP error: Status ${res.status}`);
             }
-
             return await res.json();
         } catch (err) {
             console.error(err);

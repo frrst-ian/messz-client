@@ -1,5 +1,6 @@
 import { useState } from "react";
 import useSendMessage from "../../hooks/useSendMessage";
+
 export default function Message({ convoId }) {
     const [content, setContent] = useState("");
     const { sendMessage, loading, error } = useSendMessage();

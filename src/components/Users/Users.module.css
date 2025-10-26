@@ -1,0 +1,11 @@
+.userWrapper {
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 0.85rem;
+    border: 2px solid gray;
+}
+
+.userWrapper:hover {
+    cursor: pointer;
+    background: whitesmoke;
+}

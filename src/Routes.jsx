@@ -3,12 +3,7 @@ import LoginContainer from "./components/containers/LoginContainer";
 import RegisterContainer from "./components/containers/RegisterContainer";
 import Conversations from "./components/Conversations/Conversations";
 import ConvoMessages from "./components/ConvoMessages/ConvoMessages";
-// import ConversationsContainer from "./components/containers/ConversationsContainer";
-// import ConversationMessagesContainer from "./components/containers/ConversationMessagesContainer";
-// import ProfileContainer from "./components/containers/ProfileContainer";
-// import ProfileListContainer from "./components/containers/ProfileListContainer";
-// import ProfileDetailContainer from "./components/containers/ProfileDetailContainer";
-// import UpdateProfileContainer from "./components/containers/UpdateProfileContainer";
+import Users from "./components/Users/Users";
 import ProtectedRoute from "./components/containers/ProtectedRoute";
 
 const AppRoutes = () => {
@@ -31,6 +26,14 @@ const AppRoutes = () => {
                 element={
                     <ProtectedRoute>
                         <ConvoMessages />
+                    </ProtectedRoute>
+                }
+            />
+            <Route
+                path="users"
+                element={
+                    <ProtectedRoute>
+                        <Users />
                     </ProtectedRoute>
                 }
             />
