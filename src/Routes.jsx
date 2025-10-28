@@ -4,6 +4,8 @@ import RegisterContainer from "./components/containers/RegisterContainer";
 import Conversations from "./components/Conversations/Conversations";
 import ConvoMessages from "./components/ConvoMessages/ConvoMessages";
 import Users from "./components/Users/Users";
+import UserById from "./components/Users/UserById";
+
 import ProtectedRoute from "./components/containers/ProtectedRoute";
 
 const AppRoutes = () => {
@@ -34,6 +36,15 @@ const AppRoutes = () => {
                 element={
                     <ProtectedRoute>
                         <Users />
+                    </ProtectedRoute>
+                }
+            />
+
+            <Route
+                path="users/:id"
+                element={
+                    <ProtectedRoute>
+                        <UserById />
                     </ProtectedRoute>
                 }
             />
