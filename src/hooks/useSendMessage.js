@@ -4,6 +4,7 @@ import { useState } from "react";
 export default function useMessage() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
+
     const sendMessage = async (content, convoId) => {
         setLoading(true);
         console.log("convoId:", convoId);
@@ -22,8 +23,7 @@ export default function useMessage() {
             }
             return await res.json();
         } catch (err) {
-            console.error(err);
-            setError(err);
+            setError(err.message);
         } finally {
             setLoading(false);
         }

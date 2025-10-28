@@ -12,7 +12,7 @@ export default function UserById() {
                     {/*<img src={user.pfpUrl} alt="User's PFP"/>*/}
                     <p>{user.fullName}</p>
                     <p>{user.bio}</p>
-                </div>m ru
+                </div>
             )}
         </>
     );

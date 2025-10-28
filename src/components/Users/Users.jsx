@@ -26,6 +26,8 @@ export default function Users() {
                 placeholder="Search"
             />
             <button onClick={handleSearch}>Search</button>
+            <p>Recent users...</p>
+
             {users.map((u) => (
                 <div key={u.id} className={styles.userWrapper}>
                     <p>{u.fullName}</p>
