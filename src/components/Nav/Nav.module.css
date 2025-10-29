@@ -1,0 +1,16 @@
+.navWrapper {
+    padding: 2rem 0.75rem 0.75rem 0.75rem;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+}
+
+ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    flex: 1;
+    gap: 2rem;
+}
