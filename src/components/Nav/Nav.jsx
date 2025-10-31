@@ -1,14 +1,23 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import styles from "./Nav.module.css";
 import useOutsideClick from "../../hooks/useOutsideClick";
-import { MessageCircle, UsersRound } from "lucide-react";
-import { NavLink } from "react-router-dom";
+import { MessageCircle, UsersRound, LogOut, CircleUser } from "lucide-react";
+import { NavLink, useNavigate } from "react-router-dom";
+import { UserContext } from "../../context/UserContext";
 
 export default function Nav() {
     const [open, setOpen] = useState(false);
+    const { user } = useContext(UserContext);
+    const navigate = useNavigate();
 
     const handleClickOutside = () => {
         setOpen(false);
+    };
+
+    const handleLogout = () => {
+        localStorage.removeItem("token");
+        localStorage.removeItem("user");
+        navigate(`/login`);
     };
 
     const ref = useOutsideClick(handleClickOutside);
@@ -45,16 +54,33 @@ export default function Nav() {
                     </NavLink>
                 </div>
                 <div className={styles.dropdown}>
-                    <button ref={ref} type="button" onClick={handleOpen}>
-                        Account
+                    <button
+                        className={styles.pfpBtn}
+                        ref={ref}
+                        type="button"
+                        onClick={handleOpen}
+                    >
+                        <img
+                            src={user?.pfpUrl}
+                            alt="acc"
+                            className={styles.pfp}
+                        />
                     </button>
                     {open ? (
                         <ul className={styles.menu}>
-                            <li className={styles.menuItem}>
-                                <button>View profile</button>
+                            <li
+                                className={styles.menuItem}
+                                onClick={() => navigate(`/users/${user?.id}`)}
+                            >
+                                <CircleUser className={styles.icon} />
+                                <p>View profile</p>
                             </li>
-                            <li className={styles.menuItem}>
-                                <button>Logout</button>
+                            <li
+                                className={styles.menuItem}
+                                onClick={handleLogout}
+                            >
+                                <LogOut className={styles.icon} />
+                                <p>Log out</p>
                             </li>
                         </ul>
                     ) : null}

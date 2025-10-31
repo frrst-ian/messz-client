@@ -32,7 +32,7 @@ nav {
     background-color: var(--accent);
 }
 
-.navItem:focus-visible{
+.navItem:focus-visible {
     outline: none;
 }
 
@@ -42,29 +42,44 @@ ul {
     justify-content: center;
     flex: 1;
     color: var(--text);
+    background-color: var(--background);
 }
 
 .dropdown {
     position: relative;
+    background-color: var(--background);
 }
 
 .menu {
+    display: flex;
+    flex-direction: column;
     position: absolute;
     list-style-type: none;
     margin: 5px 0;
-    padding: 0;
     border: 1px solid black;
-    right: 60px;
+    right: 5px;
+    top: 45px;
+    width: 250px;
+    background-color: #242b2c;
+    padding: 0.9rem;
+    border-radius: 0.4rem;
+    gap: 1rem;
 }
 
-.menu > li {
-    margin: 0;
-
-    background-color: white;
+.menu > li.menuItem {
+    display: flex;
+    gap: 0.8rem;
+    align-items: center;
+    justify-content: start;
 }
 
 .menu > li:hover {
-    background-color: lightgray;
+    cursor: pointer;
+}
+
+.menu > li:hover .icon {
+    color: #d7d7d7db;
+    cursor: pointer;
 }
 
 .menu > li > button {
@@ -81,4 +96,15 @@ ul {
     cursor: pointer;
 }
 
+.pfpBtn {
+    cursor: pointer;
+    background-color: var(--background);
+    border: none;
+}
 
+.pfp {
+    border-radius: 50%;
+    width: 2.6rem;
+    height: 2.6em;
+    object-fit: cover;
+}
