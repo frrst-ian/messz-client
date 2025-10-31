@@ -1,11 +1,46 @@
-.convoItemWrapper {
-    widows: 200px;
-    border: 2px solid black;
-    padding: 1rem;
-    margin: 1rem;
+.convoWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 0.8rem;
+    gap: 1rem;
+    margin-top: 4.5rem;
 }
 
-.convoItemWrapper:hover{
+.convoItemWrapper {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 0.65rem;
+    min-width: 500px;
+    padding: 0.8rem;
+    border-radius: 0.4rem;
+}
+
+.convoItemWrapper:hover {
     cursor: pointer;
-    background: gray;
+    background: #3d3d3da8;
+}
+
+.userInfo {
+    color: var(--text);
+}
+
+img.pfp {
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+
+    object-fit: cover;
+}
+
+.sender {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.content {
+    font-size: 0.9rem;
+    color: #ffffffd6;
 }

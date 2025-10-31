@@ -1,8 +1,8 @@
 import { useState } from "react";
 import styles from "./Nav.module.css";
 import useOutsideClick from "../../hooks/useOutsideClick";
-
-// fix me don't show on auth pages
+import { MessageCircle, UsersRound } from "lucide-react";
+import { NavLink } from "react-router-dom";
 
 export default function Nav() {
     const [open, setOpen] = useState(false);
@@ -20,14 +20,30 @@ export default function Nav() {
     return (
         <div className={styles.navWrapper}>
             <nav>
-                <ul>
-                    <li>
-                        <a href="/conversations">Conversations</a>
-                    </li>
-                    <li>
-                        <a href="/users">Users</a>
-                    </li>
-                </ul>
+                <div className={styles.navGroup}>
+                    <NavLink
+                        className={({ isActive }) =>
+                            isActive
+                                ? [styles.navItem, styles.active].join(" ")
+                                : styles.navItem
+                        }
+                        to="/conversations"
+                    >
+                        <MessageCircle />
+                        Chats
+                    </NavLink>
+                    <NavLink
+                        className={({ isActive }) =>
+                            isActive
+                                ? [styles.navItem, styles.active].join(" ")
+                                : styles.navItem
+                        }
+                        to="/users"
+                    >
+                        <UsersRound />
+                        Users
+                    </NavLink>
+                </div>
                 <div className={styles.dropdown}>
                     <button ref={ref} type="button" onClick={handleOpen}>
                         Account

@@ -1,5 +1,5 @@
 .navWrapper {
-    padding: 2rem 0.75rem 0.75rem 0.75rem;
+    padding: 1.5rem 0.75rem 0.75rem 0.75rem;
 }
 
 nav {
@@ -7,12 +7,41 @@ nav {
     justify-content: center;
 }
 
+.navGroup {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.navItem {
+    display: flex;
+    gap: 0.6rem;
+    align-items: center;
+    padding: 0.65rem 0.75rem;
+    border-radius: 1rem;
+}
+
+.navItem:hover {
+    background-color: var(--accent);
+    cursor: pointer;
+}
+
+.navItem.active {
+    background-color: var(--accent);
+}
+
+.navItem:focus-visible{
+    outline: none;
+}
+
 ul {
     list-style-type: none;
     display: flex;
     justify-content: center;
     flex: 1;
-    gap: 2rem;
+    color: var(--text);
 }
 
 .dropdown {
@@ -25,7 +54,6 @@ ul {
     margin: 5px 0;
     padding: 0;
     border: 1px solid black;
-    width: ;: 100px;
     right: 60px;
 }
 
@@ -52,3 +80,5 @@ ul {
     font: inherit;
     cursor: pointer;
 }
+
+
