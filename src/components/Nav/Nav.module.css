@@ -24,12 +24,12 @@ nav {
 }
 
 .navItem:hover {
-    background-color: var(--accent);
+    background-color: var(--primary);
     cursor: pointer;
 }
 
 .navItem.active {
-    background-color: var(--accent);
+    background-color: var(--primary);
 }
 
 .navItem:focus-visible {

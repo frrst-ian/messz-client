@@ -37,7 +37,8 @@ export default function useUsers() {
         }
     };
 
-    const handleSearch = () => {
+    const handleSearch = (e) => {
+        e.preventDefault();
         if (!search.trim()) return;
         fetchPost(search);
     };

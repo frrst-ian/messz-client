@@ -1,3 +1,43 @@
+.usersWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.8rem;
+    gap: 1rem;
+    margin-top: 2.5rem;
+}
+
+.searchWrapper {
+    width: 500px;
+    display: flex;
+    justify-content: center;
+}
+
+form {
+    position: relative;
+}
+
+input {
+    padding: 0.6rem 3rem;
+    border-radius: 0.3rem;
+    background: #2b2b2c;
+    border: none;
+    color: #bfbfbf;
+    width: 425px;
+}
+
+input:focus,
+input:hover {
+    outline: none;
+    border: 1px solid var(--secondary);
+}
+
+.searchIcon {
+    position: absolute;
+    left: 12px;
+    top: 9px;
+}
+
 .userWrapper {
     padding: 1rem;
     margin: 1rem;
@@ -8,4 +48,11 @@
 .userWrapper:hover {
     cursor: pointer;
     background: whitesmoke;
+}
+
+.recent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.6rem;
 }
