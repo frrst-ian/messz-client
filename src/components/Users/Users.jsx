@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import useUsers from "../../hooks/useUsers";
 import styles from "./Users.module.css";
 import Nav from "../Nav/Nav";
-import { Search,History } from "lucide-react";
+import { Search, History, CircleUser, MessageCircleMore } from "lucide-react";
 
 export default function Users() {
     const {
@@ -24,9 +24,10 @@ export default function Users() {
             <Nav />
             <div className={styles.usersWrapper}>
                 <div className={styles.searchWrapper}>
-                    <form onSubmit={handleSearch}>
+                    <form className={styles.form} onSubmit={handleSearch}>
                         <Search className={styles.searchIcon} color="#bfbfbf" />
                         <input
+                            className={styles.searchInput}
                             name="search"
                             type="text"
                             value={search}
@@ -35,22 +36,46 @@ export default function Users() {
                         />
                     </form>
                 </div>
-                <div className={styles.recent} >
+                <div className={styles.recent}>
                     <History color="#dedede" />
                     <p>Recent users...</p>
                 </div>
 
-                {users.map((u) => (
-                    <div key={u.id} className={styles.userWrapper}>
-                        <p>{u.fullName}</p>
-                        <button onClick={() => handleUserClick(u.id)}>
-                            Message
-                        </button>
-                        <button onClick={() => navigate(`/users/${u.id}`)}>
-                            View profile
-                        </button>
-                    </div>
-                ))}
+                <div className={styles.usersList}>
+                    {users.map((u) => (
+                        <div key={u.id} className={styles.userItem}>
+                            <div className={styles.user}>
+                                <img className={styles.pfp} src={u.pfpUrl} />
+                                <p>{u.fullName}</p>
+                            </div>
+                            <div className={styles.actionBtnsWrapper}>
+                                <div
+                                    className={styles.actionBtn}
+                                    onClick={() => navigate(`/users/${u.id}`)}
+                                >
+                                    <CircleUser />
+                                    <span className={styles.tooltip}>
+                                        View profile
+                                    </span>
+                                </div>
+                                <div
+                                    className={styles.actionBtn}
+                                    onClick={() => handleUserClick(u.id)}
+                                >
+                                    <MessageCircleMore />
+                                    <span
+                                        className={[
+                                            styles.tooltip,
+                                            styles.msgTooltip,
+                                        ].join(" ")}
+                                    >
+                                        Message
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
 
                 {error && <div> {error} </div>}
             </div>
