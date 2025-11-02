@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Button from "../Button/Button";
 import useRegister from "../../hooks/useRegister";
-import styles from "./register.module.css"
+import styles from "./register.module.css";
 
 const Register = () => {
     const { createUser, submitting, error } = useRegister();
@@ -33,14 +33,15 @@ const Register = () => {
     return (
         <>
             <div className={styles.registerContainer}>
-                <form onSubmit={handleSubmit}>
-                    <h1>Create an account</h1>
+                <form className={styles.registerForm} onSubmit={handleSubmit}>
+                    <h1 className={styles.registerHeader}>Create an account</h1>
                     {error && (
                         <div className={styles.error}>
                             <pre>{error}</pre>
                         </div>
                     )}
                     <input
+                        className={styles.registerInput}
                         type="Full name"
                         title="Full name"
                         name="name"
@@ -51,6 +52,7 @@ const Register = () => {
                         required
                     />
                     <input
+                        className={styles.registerInput}
                         type="email"
                         title="Email"
                         name="email"
@@ -61,6 +63,7 @@ const Register = () => {
                         required
                     />
                     <input
+                        className={styles.registerInput}
                         type="password"
                         title="Password"
                         name="password"
@@ -71,6 +74,7 @@ const Register = () => {
                         required
                     />
                     <input
+                        className={styles.registerInput}
                         type="password"
                         title="Confirm password"
                         name="confirmPassword"
@@ -80,16 +84,16 @@ const Register = () => {
                         placeholder="Confirm password"
                         required
                     />
-                    <input type="file" onChange={handleFileChange} required />
-                    {file && (
-                        <div>
-                            <p>
-                                Selected: {file.name} (
-                                {(file.size / 1024 / 1024).toFixed(2)} MB)
-                            </p>
-                        </div>
-                    )}
+                    <hr className={styles.hr} />
+                    <label id={styles.file}>Upload your profile picture (max: 5mb):</label>
                     <input
+                        id="file"
+                        type="file"
+                        onChange={handleFileChange}
+                        required
+                    />
+                    <input
+                        className={styles.registerInput}
                         type="text"
                         name="bio"
                         value={bio}

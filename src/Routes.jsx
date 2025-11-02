@@ -1,18 +1,18 @@
 import { Routes, Route, Navigate } from "react-router-dom";
-import LoginContainer from "./components/containers/LoginContainer";
+import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
 import Conversations from "./components/Conversations/Conversations";
 import ConvoMessages from "./components/ConvoMessages/ConvoMessages";
 import Users from "./components/Users/Users";
 import UserById from "./components/Users/UserById";
 
-import ProtectedRoute from "./components/containers/ProtectedRoute";
+import ProtectedRoute from "./components/Utils/ProtectedRoute";
 
 const AppRoutes = () => {
     return (
         <Routes>
             <Route path="/" element={<Navigate to="login" replace />} />
-            <Route path="login" element={<LoginContainer />} />
+            <Route path="login" element={<Login />} />
             <Route path="register" element={<Register />} />
 
             <Route

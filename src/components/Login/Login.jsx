@@ -1,23 +1,28 @@
-import styles from "./Login.module.css";
+import { useState } from "react";
+import useLogin from "../../hooks/useLogin";
 import Button from "../Button/Button";
+import styles from "./Login.module.css";
 
-const Login = ({
-    email,
-    setEmail,
-    password,
-    setPassword,
-    submitting,
-    error,
-    onSubmit,
-}) => {
+export default function Login() {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const { loginUser, error, submitting } = useLogin();
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        loginUser(email, password);
+    };
+
     return (
         <>
             <div className={styles.loginContainer}>
-                <form onSubmit={onSubmit}>
-                    <h1>Log in to Messz</h1>
+                <form className={styles.loginForm} onSubmit={handleSubmit}>
+                    <h1 className={styles.loginHeader} >Log in to Messz</h1>
                     {error && <span className={styles.error}>{error}</span>}
 
                     <input
+                        className={styles.loginInput}
                         type="email"
                         title="Email"
                         name="email"
@@ -29,6 +34,7 @@ const Login = ({
                     />
 
                     <input
+                        className={styles.loginInput}
                         type="password"
                         title="Password"
                         name="password"
@@ -71,6 +77,4 @@ const Login = ({
             </div>
         </>
     );
-};
-
-export default Login;
+}

@@ -24,9 +24,6 @@
     border: none;
     color: #bfbfbf;
     width: 425px;
-    transition:
-        color 0.3s ease,
-        border 0.3s ease;
 }
 
 .searchInput:focus,

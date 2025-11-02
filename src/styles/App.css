@@ -59,3 +59,11 @@ a {
     background: var(--background);
     color: var(--text);
 }
+
+
+.loading {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

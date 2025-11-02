@@ -1,5 +1,5 @@
 .registerContainer,
-form,
+form.registerForm,
 a.btn {
     display: flex;
 }
@@ -8,17 +8,43 @@ a.btn {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 100vh;
 }
 
-form {
+.registerHeader {
+    font-size: 2rem;
+}
+
+form.registerForm {
     flex-direction: column;
     text-align: center;
     gap: 1rem;
 }
 
+.registerInput {
+    padding: 0.4rem 0.8rem;
+    background: #19191b;
+    color: var(--text);
+    outline: none;
+    border: 2px solid #494950;
+    border-radius: 0.5rem;
+}
+
+.registerInput::placeholder {
+    color: var(--text);
+}
+
+.registerInput:focus {
+    border: 2px solid var(--accent);
+}
+
 a.btn {
     gap: 0.8rem;
     justify-content: center;
+    align-items: center;
+    padding: 0.4rem;
+    border: 1px solid #3b3a3a;
+    border-radius: 0.5rem;
 }
 
 a.btn:hover {
@@ -26,7 +52,40 @@ a.btn:hover {
     cursor: pointer;
 }
 
+input[type="file"] {
+    padding: 0.4rem 0.8rem;
+    background: #19191b;
+    color: var(--text);
+    outline: none;
+    border: 2px solid #494950;
+    border-radius: 0.5rem;
+}
+
+input[type="file"]::file-selector-button {
+    margin-right: 20px;
+    border: none;
+    background: var(--secondary);
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    color: var(--text);
+    cursor: pointer;
+    transition: background 0.2s ease-in-out;
+    font-size: 0.9rem;
+}
+
+input[type="file"]::file-selector-button:hover {
+    background: var(--accent);
+}
+
 .error {
     color: red;
-    text-align:justify;
+    text-align: justify;
+}
+
+#file {
+    text-align: start;
+}
+
+.hr {
+    border: 1px solid #656571;
 }

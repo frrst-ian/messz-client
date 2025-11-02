@@ -1,20 +1,23 @@
 import { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
+import { useNavigate } from "react-router-dom";
 
-export default function UseRegister() {
+export default function useLogin() {
     const { login } = useContext(UserContext);
     const [submitting, setSubmitting] = useState(false);
     const [error, setError] = useState("");
     const navigate = useNavigate();
 
-    const createUser = async (formData) => {
+    const loginUser = async (email, password) => {
         setSubmitting(true);
 
         try {
-            const res = await fetch(`http://localhost:3000/api/auth/register`, {
+            const res = await fetch(`http://localhost:3000/api/auth/login`, {
                 method: "POST",
-                body: formData,
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ email, password }),
             });
 
             if (!res.ok) {
@@ -24,7 +27,6 @@ export default function UseRegister() {
             const userData = await res.json();
             login(userData.token, userData.user);
             navigate("/conversations");
-            return userData;
         } catch (err) {
             if (err.details && Array.isArray(err.details)) {
                 setError(err.details.join("\n"));
@@ -36,5 +38,5 @@ export default function UseRegister() {
         }
     };
 
-    return { createUser, error, submitting };
+    return { loginUser, error, submitting };
 }
