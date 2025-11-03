@@ -12,7 +12,7 @@ export default function Conversations() {
 
     const userId = user.id;
 
-    if (loading) return <div>Loading...</div>;
+    if (loading) return <div className="loading" >Loading...</div>;
     if (error) return <div>{error}</div>;
     if (convoMessages.length === 0) return <div>No conversations found</div>;
 

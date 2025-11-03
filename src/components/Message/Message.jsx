@@ -13,6 +13,7 @@ export default function Message({ convoId }) {
 
         sendMessage(content, convoId);
         setContent("");
+        window.location.reload()
     };
 
     if (error) return <div>{error}</div>;
