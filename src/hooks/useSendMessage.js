@@ -7,7 +7,6 @@ export default function useMessage() {
 
     const sendMessage = async (content, convoId) => {
         setLoading(true);
-        console.log("convoId:", convoId);
         try {
             const res = await fetch(`http://localhost:3000/api/message`, {
                 method: "POST",

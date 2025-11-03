@@ -1,5 +1,7 @@
 import { useState } from "react";
 import useSendMessage from "../../hooks/useSendMessage";
+import styles from "./Message.module.css";
+import { SendHorizontal } from "lucide-react";
 
 export default function Message({ convoId }) {
     const [content, setContent] = useState("");
@@ -16,15 +18,18 @@ export default function Message({ convoId }) {
     if (error) return <div>{error}</div>;
 
     return (
-        <form onSubmit={handleSendMessage}>
+        <form className={styles.form} onSubmit={handleSendMessage}>
             <input
                 name="content"
                 value={content}
                 onChange={(e) => setContent(e.target.value)}
                 placeholder="Message"
                 type="text"
+                className={styles.messageInput}
             />
-            <button disabled={loading}>Send</button>
+            <button className={styles.sendBtn} disabled={loading}>
+                <SendHorizontal color="#fefefe" fill="#fefefe" />
+            </button>
         </form>
     );
 }

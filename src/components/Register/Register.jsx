@@ -37,9 +37,12 @@ const Register = () => {
                     <h1 className={styles.registerHeader}>Create an account</h1>
                     {error && (
                         <div className={styles.error}>
-                            <pre>{error}</pre>
+                            {error.map((err, index) => (
+                                <span key={index}>{err}</span>
+                            ))}
                         </div>
                     )}
+
                     <input
                         className={styles.registerInput}
                         type="Full name"
@@ -85,7 +88,9 @@ const Register = () => {
                         required
                     />
                     <hr className={styles.hr} />
-                    <label id={styles.file}>Upload your profile picture (max: 5mb):</label>
+                    <label id={styles.file}>
+                        Upload your profile picture (max: 5mb):
+                    </label>
                     <input
                         id="file"
                         type="file"

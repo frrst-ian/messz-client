@@ -18,7 +18,9 @@ export default function UseRegister() {
             });
 
             if (!res.ok) {
-                throw new Error(`HTTP error: Status ${res.status}`);
+                const errorResponse = await res.json();
+                // console.log( errorResponse.errors)
+                throw errorResponse.errors;
             }
 
             const userData = await res.json();
@@ -26,11 +28,7 @@ export default function UseRegister() {
             navigate("/conversations");
             return userData;
         } catch (err) {
-            if (err.details && Array.isArray(err.details)) {
-                setError(err.details.join("\n"));
-            } else {
-                setError(err.message);
-            }
+            setError(err);
         } finally {
             setSubmitting(false);
         }

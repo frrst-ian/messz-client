@@ -64,6 +64,7 @@ ul {
     padding: 0.9rem;
     border-radius: 0.4rem;
     gap: 1rem;
+    z-index: 999;
 }
 
 .menu > li.menuItem {

@@ -21,7 +21,8 @@ export default function useLogin() {
             });
 
             if (!res.ok) {
-                throw new Error(`HTTP error: Status ${res.status}`);
+                const error = await res.json();
+                throw new Error(error.error || 'Login failed');
             }
 
             const userData = await res.json();

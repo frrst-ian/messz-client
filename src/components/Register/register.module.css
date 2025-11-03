@@ -78,8 +78,12 @@ input[type="file"]::file-selector-button:hover {
 }
 
 .error {
-    color: red;
-    text-align: justify;
+    display: flex;
+    flex-direction: column;
+    align-items: self-start;
+    color: #ff5959;
+    text-align: center;
+    margin-left: 0.4rem;
 }
 
 #file {

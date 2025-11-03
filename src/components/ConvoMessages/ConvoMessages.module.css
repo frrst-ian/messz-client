@@ -1,3 +1,81 @@
+.messagesContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.messagesWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    height: 660px;
+    position: relative;
+    background: #25262c;
+    border-radius: 0.6rem;
+    margin-top: 1rem;
+}
+
+.messagesInfo {
+    padding: 1rem;
+    width: 800px;
+    max-height: 650px;
+    overflow-y: auto;
+    position: relative;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: end;
+}
+
+.sender {
+    align-self: flex-start;
+    position: sticky;
+    display: flex;
+    gap: 0.4rem;
+    justify-content: start;
+    align-items: center;
+    margin-bottom: 1rem;
+    background: #25262c;
+    padding: 0.7rem ;
+    border-radius: 0.4rem;
+    width: 100%;
+    border-bottom: 1px solid #4c4c54;
+}
+
+.sender:hover {
+    cursor: pointer;
+    background: #343538a8;
+}
+
+.sender p {
+    font-weight: 600;
+}
+
+img.pfp {
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    object-fit: cover;
+}
+
+.messages {
+}
+
+.messagesInfo div {
+    min-width: 50px;
+    padding: 0.3rem 0.8rem;
+    border-radius: 0.6rem;
+    margin: 0.4rem;
+    background: var(--secondary);
+}
+
+.right {
+    align-self: flex-end;
+
+}
+
 .left {
-    color: blue;
+    align-self: flex-start;
 }

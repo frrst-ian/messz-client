@@ -20,6 +20,8 @@ export default function Conversations() {
         navigate("/users");
     };
 
+    console.log('convo:' , conversations)
+
     return (
         <>
             <Nav></Nav>
@@ -52,8 +54,7 @@ export default function Conversations() {
 
                                 {userId === convo.messages[0]?.senderId ? (
                                     <span className={styles.content}>
-                                        {" "}
-                                        You: {convo.messages[0]?.content}{" "}
+                                        You: {convo.messages[0]?.content}
                                     </span>
                                 ) : (
                                     convo.messages[0]?.content
@@ -68,7 +69,7 @@ export default function Conversations() {
                     <p>No chats.</p>
                     <Button
                         type="secondary"
-                        label="Find friends"
+                        label="Find users"
                         task={navToUsers}
                     />
                     {error && <div> {error} </div>}

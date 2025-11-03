@@ -1,0 +1,36 @@
+.form {
+    position: sticky;
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.3rem;
+}
+.messageInput {
+    padding: 0.4rem 1rem;
+    background: #19191b;
+    color: var(--text);
+    outline: none;
+    border: 2px solid #494950;
+    border-radius: 0.5rem;
+    width: 95%;
+}
+
+.messageInput::placeholder {
+    color: #60606a;
+}
+
+.messageInput:focus {
+    border: 2px solid var(--accent);
+}
+
+.sendBtn {
+    border-radius: 50%;
+    cursor: pointer;
+    background: var(--primary);
+    border: none;
+}
+
+.sendBtn:hover {
+    background: var(--secondary);
+}

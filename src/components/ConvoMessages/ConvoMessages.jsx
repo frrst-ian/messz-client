@@ -3,6 +3,7 @@ import useConvoMessages from "../../hooks/useConvoMessages";
 import { UserContext } from "../../context/UserContext";
 import { useContext } from "react";
 import Message from "../Message/Message";
+import Nav from "../Nav/Nav";
 
 export default function Conversations() {
     const { convoMessages, loading, error } = useConvoMessages();
@@ -21,24 +22,32 @@ export default function Conversations() {
 
     return (
         <>
-            <div>
-                {participants.map((p) => (
-                    <p key={p.id}>{p.user?.fullName} </p>
-                ))}
+            <Nav></Nav>
+            <div className={styles.messagesContent}>
+                <div className={styles.messagesWrapper}>
+                        {participants.map((p) => (
+                            <div key={p.id} className={styles.sender}>
+                                <img className={styles.pfp} src={p.user?.pfpUrl} />
+                                <p key={p.id}>{p.user?.fullName} </p>
+                            </div>
+                        ))}
+                        <div className={styles.messagesInfo}>
+                            {messages.map((m) => (
+                                <div
+                                    key={m.id}
+                                    className={
+                                        m.senderId === userId
+                                            ? styles.right
+                                            : styles.left
+                                    }
+                                >
+                                    {m.content}
+                                </div>
+                            ))}
+                        </div>
+                        <Message convoId={convoId} />
+                </div>
             </div>
-            <div>
-                {messages.map((m) => (
-                    <p
-                        key={m.id}
-                        className={
-                            m.senderId === userId ? styles.right : styles.left
-                        }
-                    >
-                        {m.content}
-                    </p>
-                ))}
-            </div>
-            <Message convoId={convoId} />
         </>
     );
 }

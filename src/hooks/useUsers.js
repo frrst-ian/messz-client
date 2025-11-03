@@ -6,7 +6,7 @@ export default function useUsers() {
     const navigate = useNavigate();
     const [users, setUsers] = useState([]);
     const [search, setSearch] = useState("");
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
     useEffect(() => {
