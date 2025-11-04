@@ -1,5 +1,6 @@
 import useUserById from "../../hooks/useUserById";
 import styles from "./UsersById.module.css";
+import Nav from '../Nav/Nav'
 
 export default function UserById() {
     const { user, loading, error } = useUserById();
@@ -8,13 +9,19 @@ export default function UserById() {
     if (error) return <div>{error}</div>;
     return (
         <>
-            {user && (
-                <div>
-                    {/*<img src={user.pfpUrl} alt="User's PFP"/>*/}
-                    <p>{user.fullName}</p>
-                    <p>{user.bio}</p>
-                </div>
-            )}
+        <Nav></Nav>
+            <div className={styles.userInfoWrapper} >
+                {user && (
+                    <div className={styles.userInfo} >
+                        <img className={styles.pfp} src={user.pfpUrl} alt="User's PFP"/>
+                        <h3 className={styles.name} >{user.fullName}</h3>
+                        <div className={styles.bio} >
+                            {user.bio}
+                            <p>Bio</p>
+                        </div>
+                    </div>
+                )}
+            </div>
         </>
     );
 }
