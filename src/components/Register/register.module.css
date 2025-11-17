@@ -93,3 +93,10 @@ input[type="file"]::file-selector-button:hover {
 .hr {
     border: 1px solid #656571;
 }
+
+@media (max-width: 380px) {
+    form.registerForm {
+        width: 100%;
+        padding: 1.2rem;
+    }
+}

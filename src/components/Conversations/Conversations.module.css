@@ -43,3 +43,16 @@ img.pfp {
     font-size: 0.9rem;
     color: #ffffffd6;
 }
+
+@media (max-width: 380px) {
+    .convoItemWrapper {
+        min-width: 100%;
+    }
+}
+
+@media (max-width: 660px) {
+    .convoItemWrapper {
+        min-width: 100%;
+    }
+}
+

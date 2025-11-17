@@ -38,7 +38,7 @@ export default function Nav() {
                         }
                         to="/conversations"
                     >
-                        <MessageCircle />
+                        <MessageCircle className={styles.navIcon} />
                         Chats
                     </NavLink>
                     <NavLink
@@ -49,7 +49,7 @@ export default function Nav() {
                         }
                         to="/users"
                     >
-                        <UsersRound />
+                        <UsersRound className={styles.navIcon} />
                         Users
                     </NavLink>
                 </div>

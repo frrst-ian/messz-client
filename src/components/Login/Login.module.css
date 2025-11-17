@@ -56,3 +56,11 @@ a.btn:hover {
 .error {
     color: #ff5959;
 }
+
+@media (max-width: 380px) {
+    form.loginForm {
+        width: 100%;
+        padding: 1.2rem;
+    }
+}
+

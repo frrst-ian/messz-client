@@ -15,6 +15,7 @@
 
 .form {
     position: relative;
+    width: 100%;
 }
 
 .searchInput {
@@ -23,7 +24,7 @@
     background: #2b2b2c;
     border: none;
     color: #bfbfbf;
-    width: 425px;
+    width: 100%;
 }
 
 .searchInput:focus,
@@ -111,4 +112,18 @@ img.pfp {
 
 .actionBtn:hover .msgTooltip {
     right: -0.2rem;
+}
+
+@media (max-width: 580px) {
+    .userItem {
+        width: 100%;
+    }
+
+    .searchWrapper {
+        width: 100%;
+    }
+
+    .searchInput {
+        width: 100%;
+    }
 }
