@@ -19,7 +19,6 @@ export default function UseRegister() {
 
             if (!res.ok) {
                 const errorResponse = await res.json();
-                // console.log( errorResponse.errors)
                 throw errorResponse.errors;
             }
 

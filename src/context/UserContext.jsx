@@ -25,7 +25,6 @@ const UserProvider = ({ children }) => {
                 setUser(JSON.parse(storedUser));
                 setToken(storedToken);
             } catch (err) {
-                console.error("Invalid token: ", err);
                 localStorage.removeItem("token");
                 localStorage.removeItem("user");
             }
@@ -38,8 +37,6 @@ const UserProvider = ({ children }) => {
         setToken(tokenData);
         localStorage.setItem("token", tokenData);
         localStorage.setItem("user", JSON.stringify(userData));
-        // localStorage.setItem("pfpUrl", pfpUrl);
-        // localStorage.setItem("pfpId", pfpId);
     };
 
     const logout = () => {
@@ -51,7 +48,6 @@ const UserProvider = ({ children }) => {
         setToken(null);
         localStorage.removeItem("token");
         localStorage.removeItem("user");
-        // localStorage.removeItem("pfpUrl");
     };
 
     return (

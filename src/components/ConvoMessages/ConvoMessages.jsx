@@ -12,7 +12,7 @@ export default function Conversations() {
 
     const userId = user.id;
 
-    if (loading) return <div className="loading" >Loading...</div>;
+    if (loading) return <div className="loading">Loading...</div>;
     if (error) return <div>{error}</div>;
     if (convoMessages.length === 0) return <div>No conversations found</div>;
 
@@ -25,27 +25,27 @@ export default function Conversations() {
             <Nav></Nav>
             <div className={styles.messagesContent}>
                 <div className={styles.messagesWrapper}>
-                        {participants.map((p) => (
-                            <div key={p.id} className={styles.sender}>
-                                <img className={styles.pfp} src={p.user?.pfpUrl} />
-                                <p key={p.id}>{p.user?.fullName} </p>
+                    {participants.map((p) => (
+                        <div key={p.id} className={styles.sender}>
+                            <img className={styles.pfp} src={p.user?.pfpUrl} />
+                            <p key={p.id}>{p.user?.fullName} </p>
+                        </div>
+                    ))}
+                    <div className={styles.messagesInfo}>
+                        {messages.map((m) => (
+                            <div
+                                key={m.id}
+                                className={
+                                    m.senderId === userId
+                                        ? styles.right
+                                        : styles.left
+                                }
+                            >
+                                {m.content}
                             </div>
                         ))}
-                        <div className={styles.messagesInfo}>
-                            {messages.map((m) => (
-                                <div
-                                    key={m.id}
-                                    className={
-                                        m.senderId === userId
-                                            ? styles.right
-                                            : styles.left
-                                    }
-                                >
-                                    {m.content}
-                                </div>
-                            ))}
-                        </div>
-                        <Message convoId={convoId} />
+                    </div>
+                    <Message convoId={convoId} />
                 </div>
             </div>
         </>

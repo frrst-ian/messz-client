@@ -24,7 +24,6 @@ export default function useUserById() {
                 if (!res.ok)
                     throw new Error(`HTTP Error :  Status ${res.status}`);
                 const userData = await res.json();
-                console.log("userData: ", userData);
                 setUser(userData);
                 setError(null);
             } catch (err) {

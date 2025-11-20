@@ -26,7 +26,19 @@
     display: flex;
     flex-direction: column;
     flex: 1;
-    justify-content: end;
+}
+
+.messagesInfo::-webkit-scrollbar {
+    width: 8px;
+}
+
+.messagesInfo::-webkit-scrollbar-track {
+    background: #25262c;
+}
+
+.messagesInfo::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 4px;
 }
 
 .sender {
@@ -71,17 +83,26 @@ img.pfp {
     background: var(--secondary);
 }
 
-.right {
+div.right {
     align-self: flex-end;
+    background: #3b3b4d;
+    
 }
 
 .left {
     align-self: flex-start;
 }
 
+@media (max-width: 1200px) {
+    .messagesContent {
+        margin-top: 0;
+    }
+}
+
 @media (max-width: 900px) {
     .messagesContent {
         padding: 2rem;
+        margin-top: 0;
     }
 
     .messagesInfo {

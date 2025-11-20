@@ -20,7 +20,9 @@ export default function Conversations() {
         navigate("/users");
     };
 
-    console.log('convo:' , conversations)
+    const truncateMessage = (msg, maxLen) => {
+        return msg.length > maxLen ? msg.slice(0, maxLen - 3) + "..." : msg;
+    };
 
     return (
         <>
@@ -54,10 +56,10 @@ export default function Conversations() {
 
                                 {userId === convo.messages[0]?.senderId ? (
                                     <span className={styles.content}>
-                                        You: {convo.messages[0]?.content}
+                                        You: {truncateMessage(convo.messages[0]?.content, 50)}
                                     </span>
                                 ) : (
-                                    convo.messages[0]?.content
+                                    truncateMessage(convo.messages[0]?.content, 50)
                                 )}
                             </div>
                         </div>
