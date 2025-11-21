@@ -4,11 +4,14 @@ import { UserContext } from "../../context/UserContext";
 import { useContext } from "react";
 import Message from "../Message/Message";
 import Nav from "../Nav/Nav";
+import { useNavigate } from "react-router-dom";
 
 export default function Conversations() {
     const { convoMessages, loading, error } = useConvoMessages();
 
     const { user } = useContext(UserContext);
+
+    const navigate = useNavigate();
 
     const userId = user.id;
 
@@ -26,7 +29,11 @@ export default function Conversations() {
             <div className={styles.messagesContent}>
                 <div className={styles.messagesWrapper}>
                     {participants.map((p) => (
-                        <div key={p.id} className={styles.sender}>
+                        <div
+                            key={p.id}
+                            className={styles.sender}
+                            onClick={() => navigate(`/users/${p.user.id}`)}
+                        >
                             <img className={styles.pfp} src={p.user?.pfpUrl} />
                             <p key={p.id}>{p.user?.fullName} </p>
                         </div>

@@ -28,6 +28,14 @@
     flex: 1;
 }
 
+.messagesInfo .right:nth-of-type(1) {
+  margin-top: auto;
+}
+
+.messagesInfo .left:nth-of-type(1) {
+  margin-top: auto;
+}
+
 .messagesInfo::-webkit-scrollbar {
     width: 8px;
 }
@@ -86,11 +94,12 @@ img.pfp {
 div.right {
     align-self: flex-end;
     background: #3b3b4d;
-    
+    border-radius: 16px 16px 0 16px;
 }
 
-.left {
+div.left {
     align-self: flex-start;
+    border-radius: 16px 16px 16px 0;
 }
 
 @media (max-width: 1200px) {

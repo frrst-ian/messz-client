@@ -5,12 +5,13 @@ import Conversations from "./components/Conversations/Conversations";
 import ConvoMessages from "./components/ConvoMessages/ConvoMessages";
 import Users from "./components/Users/Users";
 import UserById from "./components/Users/UserById";
-
 import ProtectedRoute from "./components/Utils/ProtectedRoute";
+import NotFound from "./components/Utils/NotFound";
 
 const AppRoutes = () => {
     return (
         <Routes>
+            <Route path="*" element={<NotFound/>}  />
             <Route path="/" element={<Navigate to="login" replace />} />
             <Route path="login" element={<Login />} />
             <Route path="register" element={<Register />} />
