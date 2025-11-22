@@ -4,14 +4,13 @@ import { UserContext } from "../context/UserContext";
 
 export default function UseRegister() {
     const { login } = useContext(UserContext);
-    const [submitting, setSubmitting] = useState(false);
     const [error, setError] = useState("");
+    const [submitting, setSubmitting] = useState(false);
     const navigate = useNavigate();
 
     const createUser = async (formData) => {
-        setSubmitting(true);
-
         try {
+            setSubmitting(true);
             const res = await fetch(`http://localhost:3000/api/auth/register`, {
                 method: "POST",
                 body: formData,
@@ -29,7 +28,7 @@ export default function UseRegister() {
         } catch (err) {
             setError(err);
         } finally {
-            setSubmitting(false);
+            setError(null);
         }
     };
 

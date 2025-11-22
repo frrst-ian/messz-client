@@ -4,14 +4,14 @@ import { useNavigate } from "react-router-dom";
 
 export default function useLogin() {
     const { login } = useContext(UserContext);
-    const [submitting, setSubmitting] = useState(false);
     const [error, setError] = useState("");
     const navigate = useNavigate();
+    const [submitting, setSubmitting] = useState(false);
 
     const loginUser = async (email, password) => {
-        setSubmitting(true);
-
         try {
+            setSubmitting(true);
+
             const res = await fetch(`http://localhost:3000/api/auth/login`, {
                 method: "POST",
                 headers: {
@@ -22,7 +22,7 @@ export default function useLogin() {
 
             if (!res.ok) {
                 const error = await res.json();
-                throw new Error(error.error || 'Login failed');
+                throw new Error(error.error || "Login failed");
             }
 
             const userData = await res.json();
@@ -39,5 +39,5 @@ export default function useLogin() {
         }
     };
 
-    return { loginUser, error, submitting };
+    return { loginUser, error ,submitting};
 }

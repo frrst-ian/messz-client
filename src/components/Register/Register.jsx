@@ -4,7 +4,7 @@ import useRegister from "../../hooks/useRegister";
 import styles from "./register.module.css";
 
 const Register = () => {
-    const { createUser, submitting, error } = useRegister();
+    const { createUser, error, submitting } = useRegister();
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -14,6 +14,7 @@ const Register = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
         const formData = new FormData();
 
         formData.append("name", name);

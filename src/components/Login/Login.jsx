@@ -6,10 +6,11 @@ import styles from "./Login.module.css";
 export default function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const { loginUser, error, submitting } = useLogin();
+    const { loginUser, error,submitting } = useLogin();
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
         loginUser(email, password);
     };
 
@@ -17,7 +18,7 @@ export default function Login() {
         <>
             <div className={styles.loginContainer}>
                 <form className={styles.loginForm} onSubmit={handleSubmit}>
-                    <h1 className={styles.loginHeader} >Log in to Messz</h1>
+                    <h1 className={styles.loginHeader}>Log in to Messz</h1>
                     {error && <span className={styles.error}>{error}</span>}
 
                     <input
