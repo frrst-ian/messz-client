@@ -52,6 +52,7 @@ export default function Conversations() {
                             </div>
                         ))}
                     </div>
+                    <small>You need to refresh the page to view new messages sent.</small>
                     <Message convoId={convoId} />
                 </div>
             </div>
