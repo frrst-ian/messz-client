@@ -2,6 +2,8 @@ import { useContext, useState } from "react";
 import { UserContext } from "../context/UserContext";
 import { useNavigate } from "react-router-dom";
 
+const API_URL = import.meta.env.VITE_API_URL
+
 export default function useLogin() {
     const { login } = useContext(UserContext);
     const [error, setError] = useState("");
@@ -12,7 +14,7 @@ export default function useLogin() {
         try {
             setSubmitting(true);
 
-            const res = await fetch(`http://localhost:3000/api/auth/login`, {
+            const res = await fetch(`${API_URL}/api/auth/login`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

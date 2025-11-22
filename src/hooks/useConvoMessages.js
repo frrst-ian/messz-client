@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { getAuthHeaders } from "../utils/auth";
 import { useParams } from "react-router-dom";
 
+const API_URL = import.meta.env.VITE_API_URL
+
 export default function useConvoMessages() {
     const [convoMessages, setConvoMessages] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -13,7 +15,7 @@ export default function useConvoMessages() {
         const fetchConvoMessagesData = async () => {
             try {
                 const res = await fetch(
-                    `http://localhost:3000/api/conversations/${id}`,
+                    `${API_URL}/api/conversations/${id}`,
                     {
                         headers: {
                             ...getAuthHeaders(),

@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { getAuthHeaders } from "../utils/auth";
 
+const API_URL = import.meta.env.VITE_API_URL
+
 export default function UseConversation() {
     const [conversations, setConversations] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -10,7 +12,7 @@ export default function UseConversation() {
         const fetchConversationsData = async () => {
             try {
                 const res = await fetch(
-                    `http://localhost:3000/api/conversations`,
+                    `${API_URL}/api/conversations`,
                     {
                         headers: {
                             ...getAuthHeaders(),

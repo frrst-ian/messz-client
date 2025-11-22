@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { getAuthHeaders } from "../utils/auth";
 import { useNavigate } from "react-router-dom";
 
+const API_URL = import.meta.env.VITE_API_URL
+
 export default function useUsers() {
     const navigate = useNavigate();
     const [users, setUsers] = useState([]);
@@ -16,7 +18,7 @@ export default function useUsers() {
     const fetchPost = async () => {
         try {
             const query = `?search=${search}`;
-            const res = await fetch(`http://localhost:3000/api/users${query}`, {
+            const res = await fetch(`${API_URL}/api/users${query}`, {
                 headers: {
                     ...getAuthHeaders(),
                 },
@@ -45,7 +47,7 @@ export default function useUsers() {
 
     const handleUserClick = async (user2Id) => {
         try {
-            const res = await fetch(`http://localhost:3000/api/conversations`, {
+            const res = await fetch(`${API_URL}/api/conversations`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

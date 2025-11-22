@@ -2,6 +2,8 @@ import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
 
+const API_URL = import.meta.env.VITE_API_URL
+
 export default function UseRegister() {
     const { login } = useContext(UserContext);
     const [error, setError] = useState("");
@@ -11,7 +13,7 @@ export default function UseRegister() {
     const createUser = async (formData) => {
         try {
             setSubmitting(true);
-            const res = await fetch(`http://localhost:3000/api/auth/register`, {
+            const res = await fetch(`${API_URL}/api/auth/register`, {
                 method: "POST",
                 body: formData,
             });

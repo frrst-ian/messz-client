@@ -1,6 +1,8 @@
 import { getAuthHeaders } from "../utils/auth";
 import { useState } from "react";
 
+const API_URL = import.meta.env.VITE_API_URL
+
 export default function useMessage() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
@@ -8,7 +10,7 @@ export default function useMessage() {
     const sendMessage = async (content, convoId) => {
         setLoading(true);
         try {
-            const res = await fetch(`http://localhost:3000/api/message`, {
+            const res = await fetch(`${API_URL}/api/message`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getAuthHeaders } from "../utils/auth";
 
+const API_URL = import.meta.env.VITE_API_URL
+
 export default function useUserById() {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(false);
@@ -13,7 +15,7 @@ export default function useUserById() {
         const fetchUserData = async () => {
             try {
                 const res = await fetch(
-                    `http://localhost:3000/api/users/${id}`,
+                    `${API_URL}/api/users/${id}`,
                     {
                         headers: {
                             ...getAuthHeaders(),
