@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
 
-const API_URL = import.meta.env.VITE_API_URL
+const API_URL = import.meta.env.VITE_API_URL;
 
 export default function UseRegister() {
     const { login } = useContext(UserContext);
@@ -22,6 +22,8 @@ export default function UseRegister() {
                 const errorResponse = await res.json();
                 throw errorResponse.errors;
             }
+
+            // MEZZZZZ
 
             const userData = await res.json();
             login(userData.token, userData.user);

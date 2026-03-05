@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import useUsers from "../../hooks/useUsers";
 import styles from "./Users.module.css";
-import Nav from "../Nav/Nav";
+// import Nav from "../Nav/Nav";
 import { Search, History, CircleUser, MessageCircleMore } from "lucide-react";
 
 export default function Users() {
