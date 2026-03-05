@@ -6,11 +6,26 @@ The focus of this project is to improve my backend skills.
 
 ## Demo
 
-Click here: [Messz]()
+Click here: [Messz](https://messz.netlify.app/login)
 
-## API Reference:
+## Run Locally
 
-See the backend repo: [Messz - Server](https://github.com/frrst-ian/messz)
+Clone the project and install dependencies:
+```bash
+npm install
+```
+
+Create a `.env` file in the root:
+```
+VITE_API_URL=http://localhost:3000
+```
+
+Then start the dev server:
+```bash
+npm run dev
+```
+
+> Requires the backend to be running. See [Messz Backend](https://github.com/frrst-ian/messz).
 
 ## 'Tributing
 
