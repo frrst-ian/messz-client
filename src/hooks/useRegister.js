@@ -11,28 +11,27 @@ export default function UseRegister() {
     const navigate = useNavigate();
 
     const createUser = async (formData) => {
-    try {
-        setSubmitting(true);
-        const res = await fetch(`${API_URL}/api/auth/register`, {
-            method: "POST",
-            body: formData,
-        });
-        if (!res.ok) {
-            const errorResponse = await res.json();
-            setError(errorResponse.errors?.join(", ") || "Registration failed");
-            return;
+        try {
+            setSubmitting(true);
+            const res = await fetch(`${API_URL}/api/auth/register`, {
+                method: "POST",
+                body: formData,
+            });
+            const data = await res.json();
+            console.log("Response:", data); // add this
+            if (!res.ok) {
+                setError(data.errors);
+                return;
+            }
+            login(data.token, data.user);
+            navigate("/conversations");
+        } catch (err) {
+            console.error(err);
+            setError(["Something went wrong"]);
+        } finally {
+            setSubmitting(false);
         }
-        const userData = await res.json();
-        login(userData.token, userData.user);
-        navigate("/conversations");
-        return userData;
-    } catch (err) {
-        setError("Something went wrong");
-        console.error(err);
-    } finally {
-        setSubmitting(false); 
-    }
-};
+    };
 
     return { createUser, error, submitting };
 }
