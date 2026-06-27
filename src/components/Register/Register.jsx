@@ -46,7 +46,7 @@ const Register = () => {
 
                     <input
                         className={styles.registerInput}
-                        type="Full name"
+                        type="text"
                         title="Full name"
                         name="name"
                         value={name}
